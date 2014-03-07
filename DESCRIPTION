@@ -1,0 +1,13 @@
+Package: RWebLogo
+Type: Package
+Title: an R package for plotting sequence logos
+Version: 1.0.0
+Date: 2014-03-07
+Author: Omar Wagih
+Maintainer: Omar Wagih <wagih@ebi.ac.uk>
+Description: RWebLogo is a wrapper R package for the popular WebLogo that
+    allows plotting of customised sequence logos.
+Imports:
+    raster,
+    jpeg
+License: BSD_3_clause + file LICENSE

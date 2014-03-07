@@ -1,0 +1,4 @@
+export(plotlogo)
+export(weblogo)
+import(raster)
+importFrom(jpeg,readJPEG)
