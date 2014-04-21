@@ -48,6 +48,6 @@ See `?weblogo` for more awesome options `?plotlogo` for more information on plot
 
 A full detailed [pdf manual](http://cran.r-project.org/web/packages/RWebLogo/RWebLogo.pdf) can be found on the [CRAN package page](http://cran.r-project.org/web/packages/RWebLogo/index.html)
     
-If you're having trouble setting things up or have any questions feel free to drop me a line at [wagih@ebi.ac.uk](mailto:wagih@ebi.ac.uk)
+If you're having trouble setting things up or have any questions feel free to drop me a line at [wagih@ebi.ac.uk](mailto:wagih@ebi.ac.uk). If you have a feature request or would like to report a bug, please submit it to the [issues section](https://github.com/omarwagih/RWebLogo/issues).
 
   
