@@ -1,13 +1,23 @@
 Package: RWebLogo
 Type: Package
-Title: an R package for plotting sequence logos
-Version: 1.0.0
+Title: plotting custom sequence logos
+Version: 1.0.1
 Date: 2014-03-07
 Author: Omar Wagih
 Maintainer: Omar Wagih <wagih@ebi.ac.uk>
-Description: RWebLogo is a wrapper R package for the popular WebLogo that
-    allows plotting of customised sequence logos.
+Description: RWebLogo is a wrapper for the WebLogo python package
+    that allows generating of customised sequence logos. Sequence logos are
+    graphical representations of the sequence conservation of nucleotides (in a
+    strand of DNA/RNA) or amino acids (in protein sequences). Each logo
+    consists of stacks of symbols, one stack for each position in the sequence.
+    The overall height of the stack indicates the sequence conservation at that
+    position, while the height of symbols within the stack indicates the
+    relative frequency of each amino or nucleic acid at that position. In
+    general, a sequence logo provides a richer and more precise description of,
+    for example, a binding site, than would a consensus sequence.
 Imports:
     raster,
-    jpeg
+    jpeg,
+    findpython
 License: BSD_3_clause + file LICENSE
+SystemRequirements: Python (>=2.6) in path, ghostscript (>=9.0)

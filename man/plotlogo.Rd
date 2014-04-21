@@ -13,8 +13,8 @@ generated jpeg sequence logo.
 }
 \examples{
 # Get path to an example jpeg sequence logo
-f = system.file("extdata", "example_logo.jpeg", package="RWebLogo")
+fpath = system.file("extdata", "example_logo.jpeg", package="RWebLogo")
 # Plot it!
-plotlogo(f)
+plotlogo(fpath)
 }
 

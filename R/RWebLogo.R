@@ -1,4 +1,3 @@
-
 # TODO list:
 # color TODO Specify symbol colors, e.g. --color black AG 'Purine' --color red TC 'Pyrimidine'
 # default.color TODO Symbol color if not otherwise specified. e.g. 'red', '#FF0000'.
@@ -32,6 +31,17 @@
 # Write lines using sprintf
 .writeLines = function(v, x, ...){
   if(v) writeLines(sprintf(x, ...))
+}
+
+.python.valid <- function(){
+  ver = tryCatch({
+    system2('python', '-V', stderr=T, stdout=T)
+  }, error = function(e) {
+    ""
+  })
+  if(ver == "") return(FALSE)
+  
+  return(TRUE)
 }
 
 # Add to command vector
@@ -90,10 +100,14 @@
 #' @import raster
 #' @examples
 #' # Get path to an example jpeg sequence logo
-#' f = system.file("extdata", "example_logo.jpeg", package="RWebLogo")
+#' fpath = system.file("extdata", "example_logo.jpeg", package="RWebLogo")
 #' # Plot it!
-#' plotlogo(f)
+#' plotlogo(fpath)
 plotlogo <- function(file){
+  if(!file.exists(file)){
+    writeLines(sprintf('File "%s" does not exist!', file))
+    return(1)
+  }
   data = readJPEG(file)
   plot.new()
   lim = par()$usr
@@ -146,6 +160,7 @@ plotlogo <- function(file){
 #' @param resolution Bitmap resolution in dots per inch (DPI). Low resolution bitmaps with DPI<300 are antialiased  (default: 300 DPI).
 #' @param scale.width Scale the visible stack width by the fraction of symbols in the column?  i.e. columns with many gaps of unknowns are narrow (default: TRUE).
 #' @export
+#' @import findpython
 #' @examples
 #' # Make a sequence logo using an external alignment file format 
 #' # In this example we'll use the EMBOSS alignment format or msf
@@ -188,6 +203,12 @@ weblogo = function(seqs, file.in,
                 color.scheme = 'auto',
                 stack.width=10.8, aspect.ratio=5, box=FALSE, resolution=300, scale.width=TRUE
                 ){
+  
+  
+  if(!can_find_python_cmd(minimum_version='2.6')){
+    writeLines('Please install and add Python (>=2.6) to your path')
+    return(1)
+  }
   
   v = verbose
   

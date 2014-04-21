@@ -1,4 +1,5 @@
 export(plotlogo)
 export(weblogo)
+import(findpython)
 import(raster)
 importFrom(jpeg,readJPEG)
